@@ -1,2 +1,2 @@
 #!/bin/bash
-lsb_release -si
+grep '^ID=' /etc/os-release | cut -d= -f2 | tr '[:lower:]' '[:upper:]'
