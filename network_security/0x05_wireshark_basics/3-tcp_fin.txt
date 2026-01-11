@@ -1,1 +1,1 @@
-test
+tcp.flags.fin == 1 and tcp.flags.syn == 1
