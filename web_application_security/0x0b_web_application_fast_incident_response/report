@@ -1,0 +1,101 @@
+Web Application Incident Report – DoS Attack Analysis
+
+1. Introduction
+
+This report provides a detailed analysis of a Denial of Service (DoS) attack detected in the web server logs. The purpose of this report is to identify the source of the attack, analyze its behavior, determine the targeted resources, and propose effective mitigation strategies to prevent similar incidents in the future.
+
+---
+
+2. Detailed Attack Analysis
+
+2.1 Attack Source (Attacker IP)
+
+Analysis of the log file identified the IP address responsible for the highest number of requests:
+
+Attacker IP: 54.145.34.34
+
+---
+
+2.2 Targeted Endpoint
+
+The analysis shows that the majority of requests were sent to the following endpoint:
+
+Target Endpoint: /
+
+This indicates that the attacker focused on overwhelming the main page of the application.
+
+---
+
+2.3 Request Volume
+
+The attacker generated a high volume of requests in a short period:
+
+Total Requests by Attacker: 5000
+
+This abnormal spike in traffic confirms a DoS attack pattern.
+
+---
+
+2.4 Tool / Library Used
+
+By analyzing the User-Agent header, the tool used by the attacker was identified as:
+
+User-Agent: python-requests/2.31.0
+
+This indicates that the attacker likely used an automated script written in Python to generate requests.
+
+---
+
+3. Proposed Mitigation Strategy
+
+To prevent similar attacks in the future, the following mitigation strategies are recommended:
+
+* Implement **Rate Limiting** to restrict the number of requests per IP address.
+* Deploy a **Web Application Firewall (WAF)** to detect and block malicious traffic.
+* Enable **IP Blocking** for suspicious or abusive IP addresses.
+* Use **Load Balancing** to distribute incoming traffic and reduce server overload.
+* Configure **Request Filtering** to detect abnormal patterns.
+
+---
+
+4. Justification for the Proposed Solution
+
+* **Rate Limiting** is an industry-standard solution that effectively prevents request flooding.
+* **WAF solutions** provide real-time protection against various web attacks.
+* Blocking malicious IPs reduces repeated attack attempts.
+* Load balancing ensures service availability even during high traffic.
+
+These solutions together provide a layered defense approach, improving the overall security posture.
+
+---
+
+5. Implementation Steps
+
+1. Configure rate limiting in the web server (e.g., Nginx or Apache).
+2. Deploy a WAF solution (e.g., Cloud-based or on-premise).
+3. Identify and block malicious IP addresses.
+4. Enable detailed logging and monitoring.
+5. Regularly update security configurations.
+
+---
+
+6. Post-Implementation Monitoring
+
+To ensure long-term protection:
+
+* Continuously monitor server logs.
+* Use SIEM tools (e.g., Splunk) for real-time analysis.
+* Set up alerting for unusual traffic spikes.
+* Perform periodic security audits.
+
+---
+
+7. Conclusion
+
+The analysis confirms that the system was targeted by a DoS attack originating from a single IP address using an automated tool. The attacker focused on the main endpoint and generated a high volume of requests to disrupt service availability.
+
+By implementing the proposed mitigation strategies, especially rate limiting and WAF protection, the organization can significantly reduce the risk of future attacks and ensure better system resilience.
+
+---
+Note: All sensitive data has been anonymized for security purposes.
+
