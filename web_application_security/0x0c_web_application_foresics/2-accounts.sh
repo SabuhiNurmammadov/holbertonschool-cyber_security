@@ -1,2 +1,2 @@
 #!/bin/bash
-grep "FAILED LOGIN" auth.log | awk -F'`' '{print $2}' | cut -d"'" -f1 | sort | uniq -c | sort -nr 
+grep "session opened for user root" auth.log | head -n 1 | awk -F"user " '{print $2}' | awk '{print $1}'
