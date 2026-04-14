@@ -1,2 +1,2 @@
 #!/bin/bash
-grep "from" auth.log  | awk -F"from" '{print $2}' | awk -F" " '{print $1}' | sort  | uniq -c | wc -l
+grep -oP 'from \K\S+' auth.log | sort -u | wc -l
