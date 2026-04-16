@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -oP 'from \K\S+' auth.log | sort -u | wc -l
+grep "Accepted password for root" auth.log | awk -F" " '{print $11}' | sort | uniq -c | wc -l
