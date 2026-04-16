@@ -1,0 +1,86 @@
+### Incident Report – Web Application Forensics
+
+#### 1. Introduction
+
+Analyzing web application logs is a critical component of cybersecurity. Logs provide valuable insight into attack patterns, attacker behavior, and exploited vulnerabilities. By examining these logs, organizations can detect incidents early and implement effective defensive strategies to prevent future attacks.
+
+---
+
+#### 2. Incident Summary (Key Findings & Impact)
+
+Based on the log analysis, the following findings were identified:
+
+* Attackers attempted to access the system primarily via the **SSH service (sshd)**.
+* Multiple **FAILED LOGIN** attempts indicate a brute-force attack.
+* The user account **Jax** experienced repeated failed login attempts followed by a successful login.
+* After gaining access, the attacker escalated privileges using **sudo** to obtain **root access**.
+* A total of **18 distinct IP addresses (attackers)** successfully accessed the system.
+* Several new user accounts were created on the system.
+* **6 firewall rules** were added during or after the attack.
+
+**Impact:**
+
+* The system was compromised.
+* Root-level access was obtained by an unauthorized user.
+* There is a high risk of data exfiltration or system manipulation.
+* Persistence mechanisms may have been established by attackers.
+
+---
+
+#### 3. Implementation Plan (Mitigation Strategy)
+
+The following steps are recommended to improve system security:
+
+1. **Strengthen SSH Security**
+
+   * Disable password-based authentication
+   * Enable SSH key-based authentication only
+   * Change the default SSH port (22)
+
+2. **Prevent Brute-force Attacks**
+
+   * Install and configure tools like Fail2Ban
+   * Limit the number of login attempts
+
+3. **Harden Firewall Configuration**
+
+   * Allow only necessary ports and services
+   * Block suspicious and malicious IP addresses
+
+4. **User and Privilege Management**
+
+   * Remove unauthorized or suspicious user accounts
+   * Audit and restrict sudo privileges
+
+5. **System Updates and Patching**
+
+   * Update all system packages regularly
+   * Apply security patches promptly
+
+6. **Secure Logging**
+
+   * Ensure log integrity
+   * Implement centralized logging (e.g., SIEM systems)
+
+---
+
+#### 4. Monitoring Protocol
+
+To maintain ongoing security, the following monitoring practices should be implemented:
+
+* Real-time log monitoring using SIEM tools
+* Alerts for multiple failed login attempts
+* Continuous monitoring of root access and sudo usage
+* Detection and blocking of suspicious IP addresses
+* Regular vulnerability scanning and penetration testing
+
+**Additionally:**
+
+* Perform routine log audits
+* Maintain and test an incident response plan
+
+---
+
+#### 5. Conclusion
+
+This incident highlights the risks associated with weak authentication mechanisms and insufficient monitoring. By implementing stronger security controls and continuous monitoring, organizations can significantly reduce the likelihood and impact of similar attacks in the future.
