@@ -1,0 +1,42 @@
+Category:Malware Analysis
+Tactics: Credential Access, Collection, Command and Control, Exfiltration
+Tools: ExtAnalysis, CRX Viewer
+
+Scenario:
+Your cybersecurity team has been alerted to suspicious activity on your organization's network. Several employees reported unusual behavior in their browsers after installing what they believed to be a helpful browser extension named "ChatGPT". However, strange things started happening: accounts were being compromised, and sensitive information appeared to be leaking.
+
+Your task is to perform a thorough analysis of this extension identify its malicious components.
+
+Questions:
+
+Which encoding method does the browser extension use to obscure target URLs, making them more difficult to detect during analysis?
+
+Cavabın formatı ( ****** )
+
+2. Which website does the extension monitor for data theft, targeting user accounts to steal sensitive information?
+Cavabın formatı ( ***.********.*** )
+
+3. Which type of HTML element is utilized by the extension to send stolen data?
+Cavabın formatı ( <***> )
+
+4. What is the first specific condition in the code that triggers the extension to deactivate itself?
+Cavabın formatı ( *********.*******.****** === * )
+
+5. Which event does the extension capture to track user input submitted through forms?
+Cavabın formatı ( ****** )
+
+6. Which API or method does the extension use to capture and monitor user keystrokes?
+Cavabın formatı ( ******* )
+
+7. What is the domain where the extension transmits the exfiltrated data?
+Cavabın formatı ( **.**********.*** )
+
+8. Which function in the code is used to exfiltrate user credentials, including the username and password?
+Cavabın formatı ( *********************(********, ********); )
+
+9. Which encryption algorithm is applied to secure the data before sending?
+Cavabın formatı ( *** )
+
+10. What does the extension access to store or manipulate session-related data and authentication information?
+Cavabın formatı ( ******* )
+
